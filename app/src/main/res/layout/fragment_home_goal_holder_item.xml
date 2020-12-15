@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.interview.saleheretestproject.model.HomeItemModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_8"
+        android:padding="@dimen/space_8"
+        tools:background="@{item.status.equals(`Good`) ? @drawable/bg_rounded_white_border_green : @drawable/bg_rounded_white_border_red}"
+        tools:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/image_view_icon"
+            android:layout_width="@dimen/space_48"
+            android:layout_height="@dimen/space_48"
+            android:paddingStart="0dp"
+            android:paddingTop="@dimen/space_8"
+            android:paddingEnd="@dimen/space_8"
+            android:paddingBottom="@dimen/space_8"
+            android:scaleType="fitCenter"
+            app:imageIcon="@{item.id}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_travel" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/image_view_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_view_icon"
+            app:layout_constraintTop_toTopOf="@+id/image_view_icon">
+
+            <TextView
+                android:id="@+id/text_view_amount"
+                style="@style/TextViewSpecialFont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_18"
+                app:numberFormat="@{String.valueOf(item.amount)}"
+                tools:text="1,000 THB" />
+
+            <TextView
+                android:id="@+id/text_view_amount_max"
+                style="@style/TextViewSpecialFont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_14"
+                app:numberFormat="@{String.valueOf(item.amount_maximum)}"
+                tools:text="1,000 THB" />
+        </LinearLayout>
+
+
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+            android:id="@+id/progress"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_icon"
+            app:percent="@{item}"
+            app:rcBackgroundColor="@color/black"
+            app:rcBackgroundPadding="2dp"
+            app:rcMax="100"
+            app:rcProgress="40"
+            app:rcProgressColor="@color/colorAccent"
+            app:rcRadius="10dp" />
+
+        <TextView
+            android:id="@+id/text_view_goal_name"
+            style="@style/TextViewSpecialFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:gravity="start"
+            android:text="@{item.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/text_view_status"
+            style="@style/TextViewSpecialFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:gravity="start"
+            android:text="@{item.status}"
+            android:textColor="@{item.status.equals(`Good`)? @color/teal_700 : @color/colorAccent}"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_day_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_goal_name"
+            tools:text="Happy" />
+
+        <TextView
+            android:id="@+id/text_view_day_left"
+            style="@style/TextViewSpecialFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_view_status"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_goal_name"
+            app:numberFormat="@{String.valueOf(item.day_left)}"
+            tools:text="20 day left" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

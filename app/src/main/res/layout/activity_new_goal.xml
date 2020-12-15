@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gold"
+            android:paddingStart="@dimen/space_16"
+            android:paddingTop="@dimen/space_48"
+            android:paddingEnd="@dimen/space_16"
+            android:paddingBottom="@dimen/space_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text_view_header"
+                style="@style/TextViewSpecialFont"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/goal_header"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_32"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edit_text_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_48"
+                android:background="@drawable/bg_white_border_red"
+                android:paddingStart="@dimen/space_16"
+                android:paddingEnd="@dimen/space_16"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_header" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_8">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_goal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/fragment_achievement_view_holder" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_48"
+                    android:layout_marginStart="@dimen/space_8"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:background="@drawable/bg_white_border_red"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/space_16"
+                    android:paddingEnd="@dimen/space_16">
+
+                    <EditText
+                        android:id="@+id/edit_amount"
+                        style="@style/TextViewSpecialFont"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/space_16"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/goal_amount"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_24" />
+
+                    <TextView
+                        style="@style/TextViewSpecialFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_goal_amount_label2"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/text_24" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/root_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_48"
+                    android:layout_marginStart="@dimen/space_8"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:background="@drawable/bg_white_border_red"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/space_16"
+                    android:paddingEnd="@dimen/space_16">
+
+                    <TextView
+                        android:id="@+id/text_view_date"
+                        style="@style/TextViewSpecialFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/space_16"
+                        android:layout_weight="1"
+                        android:hint="@string/goal_date"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_24" />
+
+                    <ImageView
+                        android:layout_width="@dimen/space_16"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_arrow_down" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextViewSpecialFont"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:padding="@dimen/space_8"
+                    android:singleLine="true"
+                    android:text="@string/goal_bank"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_24" />
+
+                <LinearLayout
+                    android:id="@+id/root_bank_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_48"
+                    android:layout_marginStart="@dimen/space_8"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:background="@drawable/bg_white_border_red"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/space_16"
+                    android:paddingEnd="@dimen/space_16">
+
+                    <TextView
+                        android:id="@+id/text_view_bank_account"
+                        style="@style/TextViewSpecialFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/space_16"
+                        android:layout_weight="1"
+                        android:hint="@string/goal_select_account"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_24" />
+
+                    <ImageView
+                        android:layout_width="@dimen/space_16"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_arrow_down" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_48"
+                    android:layout_marginStart="@dimen/space_8"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:background="@drawable/bg_white_border_red"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/space_16"
+                    android:paddingEnd="@dimen/space_16">
+
+                    <EditText
+                        android:id="@+id/edit_salary"
+                        style="@style/TextViewSpecialFont"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/space_16"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/goal_salary"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_24" />
+
+                    <TextView
+                        style="@style/TextViewSpecialFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/goal_salary_unit"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/text_24" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

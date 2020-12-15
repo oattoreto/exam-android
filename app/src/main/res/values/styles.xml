@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextViewNormalFont">
+        <item name="android:fontFamily">@font/normal</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+    <style name="TextViewSpecialFont">
+        <item name="android:fontFamily">@font/cartoon</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+</resources>

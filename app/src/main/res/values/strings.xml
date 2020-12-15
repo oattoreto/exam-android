@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SaleHereTestProject</string>
+    <string name="home_goal_count">3 Goals</string>
+    <string name="home_goal_amount_label1">All Saving</string>
+    <string name="home_goal_amount_label2">THB</string>
+    <string name="home_goal_button_add">+ New Goal</string>
+    <string name="achievement_header">Achievement</string>
+    <string name="achievement_level">Level 2</string>
+    <string name="goal_header">What your Goal</string>
+    <string name="goal_amount">Amount</string>
+    <string name="goal_date">Select Date</string>
+    <string name="goal_bank">Bank Account</string>
+    <string name="goal_select_account">Select Account</string>
+    <string name="goal_salary">Salary</string>
+    <string name="goal_salary_unit">THB / Month</string>
+    <string name="goal_0">Travel</string>
+    <string name="goal_1">Education</string>
+    <string name="goal_2">Invest</string>
+    <string name="goal_3">Clothing</string>
+</resources>

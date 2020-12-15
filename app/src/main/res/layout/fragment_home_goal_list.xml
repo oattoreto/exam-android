@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.interview.saleheretestproject.page.home.goal.GoalListViewHolder" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gold_gradient"
+            android:paddingTop="@dimen/space_48">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_goal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/fragment_home_goal_holder_item" />
+
+            <LinearLayout
+                android:id="@+id/content_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerview_goal">
+
+                <TextView
+                    android:id="@+id/text_view_goal_count"
+                    style="@style/TextViewSpecialFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:text="@string/home_goal_count"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_32" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/text_view_label1"
+                    style="@style/TextViewSpecialFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_goal_amount_label1"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18" />
+
+                <TextView
+                    android:id="@+id/text_view_amount"
+                    style="@style/TextViewSpecialFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/space_8"
+                    android:paddingEnd="@dimen/space_8"
+                    android:text="37,500"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_36" />
+
+                <TextView
+                    android:id="@+id/text_view_label2"
+                    style="@style/TextViewSpecialFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:text="@string/home_goal_amount_label2"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_add_goal"
+            style="@style/TextViewSpecialFont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_16"
+            android:background="@drawable/button_add_goal"
+            android:onClick="@{(v)-> vm.intentNewGoal()}"
+            android:text="@string/home_goal_button_add"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_32" />
+
+    </LinearLayout>
+</layout>
